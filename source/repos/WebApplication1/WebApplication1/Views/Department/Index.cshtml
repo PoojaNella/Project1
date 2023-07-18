@@ -1,0 +1,30 @@
+﻿@model Course
+
+@using (Html.BeginForm("Index", "Department",FormMethod.Post))
+{
+    <label>CourseID</label>
+    <input type="text" name="CourseID"/>
+    <label>CourseName</label>
+    <input type="text" name="CourseName"/>
+    <label>CourseDescription</label>
+    <input type="text" name="CourseDescription" />
+
+    <input type="submit" value="submit" />
+    <br>
+
+    <div>
+        <label>CourseID: </label> @Html.DisplayFor(c=>c.CourseId) <br>
+        <label>CourseName: </label>@Html.DisplayFor(c=>c.CourseName)<br>
+        <label>Description: </label>@Html.DisplayFor(c=>c.CourseDescription)
+    </div>
+
+
+
+}
+
+<div>
+
+   
+
+</div>
+

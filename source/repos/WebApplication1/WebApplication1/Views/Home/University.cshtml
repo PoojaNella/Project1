@@ -1,0 +1,52 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1>University Home Page</h1>
+<h4>Admin</h4>
+
+
+<script>function showAlert() {
+        alert("University page");
+    }
+
+    function showCourses() {
+        document.getElementById("Course-form").style.display='';
+    }
+    function enrollStudent() {
+        document.getElementById("student-enroll").style.display = '';
+    }
+    </script>
+<button>Add course</button>
+
+
+<div>
+    <input type="button" value="Enroll Student" onclick="enrollStudent()" />
+    <input type="button" value="show alert" onclick="showAlert()" />
+    <input type="button" value="show available courses" onclick="showCourses()" />
+    <input type="button" value="Department" onclick="location.href='@Url.Action("DepartmentHome", "Department")' "/>
+    <input type="button" value="Partial View" onclick="location.href='@Url.Action("testPartial", "Department")' " />
+    <input type="button" value="Submit Form" onclick="location.href='@Url.Action("Index", "Department")' " />
+
+</div>
+<div id="Course-form" style="display:none">
+    <ul>
+        <li>Advance Algorithms</li>
+        <li>Database systems</li>
+        <li>Compiler Design</li>
+    </ul>
+   
+
+</div>
+<div id="student-enroll" style="display:none">
+    <input type="text" value="First Name" />
+    <input type="text" value="Last Name" />
+    <input type="text" value="DOB"/>
+</div>
+
+<form>
+
+    <p>@ViewBag.Message</p>
+</form>

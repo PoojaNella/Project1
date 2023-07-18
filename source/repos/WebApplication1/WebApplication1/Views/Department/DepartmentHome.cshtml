@@ -1,0 +1,98 @@
+﻿@model IEnumerable<WebApplication1.Models.Department>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+</style>
+<div>
+
+    <partial name="StPartial" model="Model" />
+</div>
+<script>
+    function displayCScourses(){
+        document.getElementById("cs-courses").style.display='';
+    }
+
+    function displayCIScourses() {
+        document.getElementById("cis-courses").style.display = '';
+    }
+</script>
+
+<h1>Departments</h1>
+<div>
+<input type="submit" value ="Computer Science" onclick="displayCScourses()"/>
+</div>
+<div id="cs-courses" style="display:none">
+    @{
+        Department CS = ViewBag.cs;
+        <h6>Dept Name: @CS.DeptName</h6>
+        <h6>Dept Name: @CS.DeptId</h6>
+        <h6>Dept Description: @CS.DepartmentDescription</h6>
+        List<Course> c = ViewBag.CScourse;
+        <h5>Courses List by passing object to ViewBag</h5>
+        foreach(Course c1 in c)
+        {
+
+            
+            <h6>@c1.CourseId</h6>
+            <h6>@c1.CourseName</h6>
+            <h6>@c1.CourseDescription</h6>
+        }
+
+        <h5>Display Courses Using Table</h5>
+
+        <table>
+        @foreach (Course c1 in c)
+        {
+
+            <tr>
+            <td>@c1.CourseId</td>
+            <td>@c1.CourseName</td>
+            <td>@c1.CourseDescription</td>
+                </tr>
+        }
+        </table>
+    }
+</div>
+<p></p>
+
+
+<div>
+    <h5>Display Departments using Model</h5>
+    <table>
+
+        @foreach (var d in Model)
+        {
+            <tr>
+                <td>@d.DeptId</td>
+                <td>@d.DeptName</td>
+                <td>@d.DepartmentDescription</td>
+                <td>
+                    @foreach (Course c1 in d.Courses)
+                    {
+                       <p>@c1.CourseId,@c1.CourseName</p>
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<div>
+<input type="submit" value="Computer Information Systems" onclick="displayCIScourses()" />
+</div>
+
+<p></p>
+
+<div id="cis-courses" style="display:none">
+    <h6>Using View Bag</h6>
+    <p>@ViewBag.cisdepartmentId</p>
+    <p>@ViewBag.cisdepartmentName</p>
+    <p>@ViewBag.cisdepartmentDescription</p>
+</div>
+
