@@ -108,3 +108,5 @@ select Sum(cast(new_cases as float)) as total_cases,sum(cast(new_deaths as float
 sum(cast(new_deaths as float))/Sum(cast(new_cases as float)) * 100 As DeathPercentage
 from [Portfolio Project].[dbo].[coviddeaths]
 where continent is not null
+
+-----I have update the file accordingly please look into the changes 
