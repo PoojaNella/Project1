@@ -64,7 +64,7 @@ and dea.location = vac.location
 where dea.continent is not null
 order by 2,3 
 
-
+---------
 ----Creating Temp Table
 
 Drop table if exists #Percentpopulationvaccinated
